@@ -6,18 +6,18 @@ export function CopyToClipboard({
   iconProps = {},
   children,
   containerProps = {},
-}: {
+}: Readonly<{
   toCopy: string
   msg?: string
   iconProps?: {}
   children?: React.ReactNode | (({ onCopy }: { onCopy: () => void }) => void)
   containerProps?: {}
-}) {
+}>) {
   const { hasCopied, onCopy } = useClipboard(toCopy)
   return (
     <Tooltip isOpen={hasCopied} label={msg ?? "Copied to clipboard"}>
       {typeof children === "function" ? (
-        children({ onCopy })
+        (children as Function)({ onCopy })
       ) : (
         <Flex {...containerProps}>
           {children}

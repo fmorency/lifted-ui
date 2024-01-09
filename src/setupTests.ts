@@ -9,6 +9,3 @@ import { TextEncoder, TextDecoder } from "util"
 global.TextEncoder = TextEncoder
 // @ts-ignore
 global.TextDecoder = TextDecoder
-
-//https://github.com/chakra-ui/chakra-ui/discussions/5558
-jest.spyOn(mediaQueryHooks, "useBreakpointValue")

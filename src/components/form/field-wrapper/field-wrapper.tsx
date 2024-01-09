@@ -32,7 +32,7 @@ export function FieldWrapper(
     <FormControl isInvalid={Boolean(error)} {...restProps}>
       {label &&
         (typeof label === "function" ? (
-          label()
+          (label as Function)()
         ) : (
           <FormLabel {...labelProps}>{label}</FormLabel>
         ))}
